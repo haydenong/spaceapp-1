@@ -1,4 +1,4 @@
-<div class="container" ng-controller="MacroCtrl as ctrl">
+<div class="container">
     <div class="row">
         <div class="col s4">
             <h3>SOLAR PANEL</h3>
@@ -28,10 +28,41 @@
                     <h3 class="center-align">
                         METEOLOGICAL DATA
                     </h3>
-                    <div class="meteo-data">
-                        "hello"
-                        <div id="gauge" class="200x160px"></div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s4">
+                    <div id="gauge" class="200x160px"></div>
+                </div>
+                <div class="col s4">
+                    <h4 class="center-align">
+                        Sunrise
+                    </h4>
+                    <h5 class="center-align">
+                        0{{ ctrl.sunrise[ctrl.currentIndex].sunrise }}
+                    </h5>
+                </div>
+                <div class="col s4">
+                    <h4 class="center-align">
+                        Sunset
+                    </h4>
+                    <h5 class="center-align">
+                        {{ ctrl.sunset[ctrl.currentIndex].sunset }}
+                    </h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s10 offset-s2">
+                    <h5>For the Month: September</h5>
+                    <p>Slide to select date</p>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input type="range" id="date-range" ng-change="ctrl.updateIndex()" ng-model="ctrl.today.date" min="1" max="30" />
+                        </p>
+                    </form>
                 </div>
             </div>
 

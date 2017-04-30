@@ -8,14 +8,19 @@
         vm.radiation = Service.radiation;
         vm.sunrise = Service.sunrise;
         vm.sunset = Service.sunset;
+        vm.today = {
+            date: 0
+        };
+        vm.currentIndex;
+        vm.updateIndex = function () {
+            vm.currentIndex = 30 - vm.today.date;
+        }
 
-      
+
         rad = vm.radiation;
-        console.info(vm.radiation);
-        total = rad.map(function(rad){
+        total = rad.map(function (rad) {
             return (rad.radiation * markerCount * 1 * 0.20);
         });
-        console.log("total", total);
 
 
         vm.g = new JustGage({
@@ -28,8 +33,7 @@
         });
 
 
-        var A = [
-            {
+        var A = [{
                 "id": 1,
                 "unixTime": 1475315718,
                 "date": "2016-09-30",
@@ -152,12 +156,13 @@
         ];
 
         getAveDailyIrradiance();
+
         function getAveDailyIrradiance() {
             var pastDate = A
-            for(var i=0; i < A.length; i++){
+            for (var i = 0; i < A.length; i++) {
 
-                console.log("i " + i);
-                console.log(A[i].date);
+                // console.log("i " + i);
+                // console.log(A[i].date);
             }
 
 
